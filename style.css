@@ -1,0 +1,188 @@
+html, body{
+    width: 100%;
+    height: 100%;
+    /* background-color: rgb(253, 252, 248); */
+}
+
+#main {
+    width: 60%;
+    height: 70%;
+    /* background-color: rgb(236, 247, 199); */
+    background-color:rgba(210, 235, 205, 1);
+    border: 2px;
+    border-style: outset;
+    margin: 2% 0% 2% 20%;
+    /* font-family: Arial, Helvetica, sans-serif; */
+    color: rgb(114, 94, 112);
+    font-size: 150%;
+    padding-left: 3%;
+    padding-top: 3%;
+}
+
+#uinput{
+    background-color: rgb(248, 182, 164);
+    margin-top: 2%;
+    margin-bottom: 2%;
+    float: left;
+}
+
+#uinputCheckAll{
+    width: 10%;
+    height: 100%;
+    float: left;
+}
+
+#uinputBox {
+    width: 70%;
+    height: 100%;
+    float: left;
+
+}
+
+#uiputDropdown{
+    /* float: left; */
+    height: 100%;
+    width: 50%;
+    float: left;
+    /* background-color: rgb(248, 237, 230); */
+    /* border: 2px; */
+    /* border-style: outset; */
+    margin: 0% 0% 0% 5%;
+    /* float: right; */
+    /* font-family: Arial, Helvetica, sans-serif; */
+    /* font-size: 60%; */
+    /* padding-left: 0%; */
+    
+}
+
+
+/* Classes */
+.container{
+    width: 70%;
+    height: 6%;
+    margin-left: 10%;
+    padding-top: 2.1%;
+    padding-left: 2%;
+    border: 1px;
+    border-style: outset;
+    font-size: 80%;
+    float: left;  
+}
+
+.userinput{
+    color: darkcyan;
+    margin-left: 12%;
+    width: 50%;  
+    border-radius: 10%;
+}
+
+.item{
+    margin-top: 1%;
+    margin-bottom: 1%;
+    background-color:  rgba(255, 252, 239, 1);
+    color: rgb(7, 165, 165);
+}
+
+.itemradiotext{
+    width: 85%;
+    height: 100%;
+    float: left;
+}
+
+.itemradio{
+    width: 10%;
+    height: 100%;
+    float: left;
+}
+
+
+.itemtext{
+    margin: 0;
+    float: left;
+    width: 80%;
+    height: 100%;
+}
+
+.itemtrash{
+    height: 100%;  
+    float: left;
+}
+
+.fa-trash{
+    color: rgb(250, 158, 133);
+    float:left;
+    margin-left: 2%;
+}
+
+
+input[type=checkbox]:checked + label.strikethrough{
+  text-decoration: line-through;
+}
+
+
+.b{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    word-wrap: break-word;
+    background-color: rgb(104, 182, 182);
+    color: rgba(255, 252, 239, 1);
+    font-size: 90%;
+}
+
+.b:hover {opacity: 1}
+ 
+/* Dropdowns */
+/* Style The Dropdown Button */
+.dropbtn {
+    background-color: rgb(17, 179, 179);
+    color: white;
+    /* padding: 16px; */
+    /* width: 100%;
+    height: 100%; */
+    font-size: 80%;
+    border-style: outset;
+    cursor: pointer;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: absolute;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 200%;
+    min-height: 10%;
+    box-shadow: 0px 8px 16px 0px rgba(46, 45, 45, 0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    /* color: black; */
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+    color: rgba(57, 57, 57, 1);
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+    background-color:rgba(255, 252, 239, 1);
+    color: darkcyan
+}

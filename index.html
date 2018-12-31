@@ -13,7 +13,9 @@
 </head>
 <body>
 
-    <i class="fa fa-bars"></i>
+    <div id="titleContainer"> 
+        <div class="title"> ~ My ToDo List ~ </div> 
+    </div> 
 
     <div id="main">      
         
@@ -22,29 +24,31 @@
                     <input type="checkbox" id="checkAll" v-model="selectAll" > 
                 </div>
 
-                <div id="uinputBox">  <input v-model="item"  type="text" placeholder="Enter item" class="userinput" v-on:keyup.preventDefault.enter="add(item)" >   </div>
+                <div id="uinputBox"> 
+                    <input :disabled="activate == 1 ? true : false " v-model="userInput"  type="text" placeholder="Enter an item" class="userinput" v-on:keyup.enter="add(userInput)" >   
+                </div>
                
                 <div id="uinputDropdown">
                         <div class="dropdown">
                                 <button class="dropbtn"> Options </button>
                                 <div class="dropdown-content">                             
-                                  <!-- <a href="#"> <input type="checkbox" id="checkAll" v-model="selectAll" > </a> -->
-                                  <a href="#" @click="unselectAll" class="b"> Unselect all </a>
-                                  <a href="#" @click="deleteSelected" class="b"> Delete selected </a>
-                                  <a href="#" @click="deleteAll" class="b"> Delete all </a>
-                                  <a href="#" @click="showChecked" class="b"> Show completed tasks </a>
-                                  <a href="#" @click="showUnchecked" class="b"> Show incomplete tasks </a>
+                                  <a href="#" @click="showAll" class="b"> Show All </a>
+                                  <a href="#" @click="unselectAll" class="b"> Unselect All </a>
+                                  <a href="#" @click="deleteSelected" class="b"> Delete Selected </a>
+                                  <a href="#" @click="deleteAll" class="b"> Delete All </a>
+                                  <a href="#" @click="showUnchecked" class="b"> Show Incomplete Tasks </a>
+                                  <a href="#" @click="showChecked" class="b"> Show Completed Tasks </a>
                                   <a href="#" @click="orderASC" class="b"> Sort A to Z </a>
                                   <a href="#" @click="orderDESC" class="b"> Sort Z to A </a>
                                 </div>
                         </div>        
                 </div>  <!-- end of uinputDropdown -->     
 
-        </div>  <!-- end of uinput -->
+        </div>  <!-- end of uinput  v-if="item.show === true"-->
 
-        <ul  class="item container" v-for="(item, index, key) in items" :key="item.key" draggable="true" v-if="item.show === true">                  
+        <ul  class="item container" v-for="item in items" :key="item.key" v-if="item.show === true" >                  
                 <div class="itemradiotext" >  
-                        <input type="checkbox"  v-model="checked" v-bind:value="item.key"  >  
+                        <input type="checkbox"  v-model="checked" :value="item.key">  
                         <label :for="item.key" class="strikethrough" >  {{ item.name }}  </label>                     
                 </div>              
                 <div class="itemtrash"  @click="del(item.key)"> <i class="fa fa-trash" ></i>  </div>
@@ -60,29 +64,3 @@
 </html>
 
 
-
-
-<!-- <div id="footerCheckAll" class="footerElt"  title="Select all">
-    <input type="checkbox" id="checkAll" v-model="selectAll" > 
-</div>
-<div id="footerDeleteSelected" class="footerElt" title="Unselect all"> 
-        <button type="checkbox" id="unselectAll" @click="unselectAll" class="button" > Unselect All </button>
-</div>
-<div id="footerDeleteSelected" class="footerElt" title="Delete completed tasks">
-        <button type="checkbox" id="deleteSelected" @click="deleteSelected" class="button"> Delete Selected </button>
-</div>
-<div id="footerdeleteall" class="footerElt"  title="Delete all">
-    <button @click="deleteAll" class="button"> Delete All</button>
-</div> 
-<div id="footerShowUnchecked" class="footerElt" title="Show completed tasks">
-    <button type="checkbox" id="showChecked" @click="showChecked" class="button"> Completed </button>
-</div> 
-<div id="footerShowChecked" class="footerElt" title="Show incomplete tasks" >
-    <button type="checkbox" id="showUnchecked" @click="showUnchecked" class="button"> Incomplete </button>         
-</div>
-<div id="footerOrderAZ" class="footerElt">
-    <button  @click="orderASC"  title="Order AZ" class="button"> <i class="fa fa-sort-alpha-asc"></i></button> 
-</div>
-<div id="footerOrderZA" class="footerElt"  >
-    <button @click="orderDESC" title="Order ZA" class="button"> <i class="fa fa-sort-alpha-desc"></i></button>
-</div> -->

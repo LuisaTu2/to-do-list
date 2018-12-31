@@ -10,64 +10,97 @@ function  compare (a,b){
 new Vue({
     el:"#main",
     data: {
-        item: "",
         items: [],
         count: 0,
-        checked: [],
+        checked: [], 
+        unchecked: [],
+        userInput: "",
+        activate: 0
     },
     methods:{
-        add: function(item){
+        add: function(userInput){
+            this.activate = 0;
             var k = this.count + 1;
-            this.items.push({key: k, name: item, show: true});
+            this.items.push({key: k, name: this.userInput, show: true});
             this.count++;
-            // $("#input").value = "Enter Item" // HOW TO MAKE IT GO BACK TO BLANK AGAIN????
-            console.log($("#userinput"));
+            this.userInput = "";
+        },
+        showAll: function(){
+            this.activate = 0;
+            var self = this;
+            this.items.forEach(function(item){
+                item.show = true
+            })
+            // this.items.forEach( function(item){
+            //     self.checked.forEach(function(checkedid){
+            //         if(item.show === false){
+            //             item.show = true; }
+            //      })
+            // })
         },
         unselectAll: function(){
+            this.activate = 0;
             this.checked = [];
         },
         deleteSelected: function(){
+            
+            this.activate = 0;
             var self = this;
-            this.items.forEach(function(item, ix){               
-                self.checked.forEach(function(c){
-                    if(item.key === c){
-                        //console.log(item.key, c, ix);
-                        self.items.splice(ix, 1 );
-                    }
-                })
+            this.checked.sort(); this.checked.reverse();
+            this.checked.forEach(function(checkedid, checkedix, checkedkey){
+                self.items = self.items.filter(item => item.key != checkedid);
+
             })
+            this.checked = []; 
+            // console.log(this.items, this.checked);
         },
         orderASC: function(){
+            this.activate = 1;
             this.items = this.items.sort(compare);
         },
         orderDESC: function(){
+            this.activate = 1;
             this.items = this.items.sort(compare).reverse();
         },
         showUnchecked: function(){   
+            this.showAll();
+            this.activate = 1;
             var self = this;
-            this.items.forEach(function(item){
-                self.checked.forEach(function(checkedid){
-                    if(item.key === checkedid){
-                        item.show =! item.show;
+            this.checked.forEach(function(checkedelt){
+                self.items.forEach(function(item){
+                    if (item.key === checkedelt){
+                        item.show = false;
                     }
                  })
             });
         },
         showChecked: function(){   
+            this.activate = 1;
             var self = this;
+            // console.log(this.items, this.checked);     
             this.items.forEach(function(item){
-                if(!self.checked.includes(item.key)){
-                    item.show =! item.show
-                }
+                item.show = false
+            })
+            
+            this.checked.forEach(function(checkedelt){
+                self.items.forEach(function(item){
+                    if (item.key === checkedelt){
+                        item.show = true;
+                    }
+
+               })                
             })
         },
         del: function(k){
+            this.activate = 0;
             this.items = this.items.filter(item => item.key != k);
         }, 
         deleteAll: function(){
+            this.activate = 0;
             this.items = [];
         },
     }, //end of methods
+
     computed: {
         selectAll: {
             get: function () {

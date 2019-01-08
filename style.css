@@ -34,6 +34,7 @@ html, body{
     color: rgb(114, 94, 112);
     font-size: 150%;
     padding-top: 1%;
+    overflow: auto;
 }
 
 #uinput{

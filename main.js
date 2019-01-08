@@ -19,11 +19,15 @@ new Vue({
     },
     methods:{
         add: function(userInput){
-            this.activate = 0;
-            var k = this.count + 1;
-            this.items.push({key: k, name: this.userInput, show: true});
-            this.count++;
-            this.userInput = "";
+            if (userInput.length === 0){
+                alert("Empty items not allowed")
+            } else {
+                this.activate = 0;
+                var k = this.count + 1;
+                this.items.push({key: k, name: this.userInput, show: true});
+                this.count++;
+                this.userInput = "";
+            }
         },
         showAll: function(){
             this.activate = 0;

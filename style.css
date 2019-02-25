@@ -38,7 +38,7 @@ html, body{
 }
 
 #uinput{
-    background-color:orange;
+    background-color:rgb(219, 110, 233);
     height: 8%;
     width: 80%;
     margin: 0%  10%; 
@@ -78,7 +78,9 @@ html, body{
     width: 80%;
     height: 6%;
     margin-left: 10%;
-    padding-top: 1.5%;
+    margin-top: 0.5%;
+    margin-bottom: 0.5%;
+    padding-top: 1%;
     padding-left: 2%;
     border: 1px;
     border-style: outset;
@@ -95,7 +97,7 @@ html, body{
 
 
 .item{
-    margin-top: 1%;
+    /* margin-top: 1%; */
     background-color:  rgb(250, 236, 209);
     color: rgb(7, 165, 165);
     font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;

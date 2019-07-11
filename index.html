@@ -5,60 +5,75 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>To Do List</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Covered+By+Your+Grace|Shadows+Into+Light+Two&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.min.js"></script>
  
 </head>
 <body>
 
-    <div id="titleContainer"> 
-        <div class="title">  My To-Do List  </div> 
-    </div> 
-
-    <div id="main">      
+    <div id="app">
         
-        <div id="uinput" class="container" >
-                <div id="uinputCheckAll"  title="Select all">
-                    <input type="checkbox" id="checkAll" v-model="selectAll" > 
-                </div>
+        <!-- <img src="./images/watermelon.jpg" alt="watermelon"> -->
+        <img src="./images/bubbles.jpg" alt="watermelon">
 
-                <div id="uinputBox"> 
-                    <input :disabled="activate == 1 ? true : false " v-model="userInput"  type="text" placeholder="Enter an item" class="userinput" v-on:keyup.enter="add(userInput)" >   
-                </div>
-               
-                <div id="uinputDropdown">
-                        <div class="dropdown">
-                                <button class="dropbtn"> Options </button>
-                                <div class="dropdown-content">                             
-                                  <a href="#" @click="showAll" class="b"> Show All </a>
-                                  <a href="#" @click="unselectAll" class="b"> Unselect All </a>
-                                  <a href="#" @click="deleteSelected" class="b"> Delete Selected </a>
-                                  <a href="#" @click="deleteAll" class="b"> Delete All </a>
-                                  <a href="#" @click="showUnchecked" class="b"> Show Incomplete Tasks </a>
-                                  <a href="#" @click="showChecked" class="b"> Show Completed Tasks </a>
-                                  <a href="#" @click="orderASC" class="b"> Sort A to Z </a>
-                                  <a href="#" @click="orderDESC" class="b"> Sort Z to A </a>
-                                </div>
-                        </div>        
-                </div>  <!-- end of uinputDropdown -->     
+        <div id="titleContainer"> 
+            <div class="title">  My To-Do List  </div> 
+        </div> 
 
-        </div>  <!-- end of uinput  v-if="item.show === true"-->
+        <div id="main" class="container-fluid">      
+            
+            <div id="uinput" class="row uinputRow" >
+                    <div id="uinputCheckAll"  title="Select all" class="col-2 text-center userCheckbox">
+                        <input type="checkbox" id="checkAll" v-model="selectAll" > 
+                    </div>
 
-        <ul  class="item container" v-for="item in items" :key="item.key" v-if="item.show === true" >                  
-                <div class="itemradiotext" >  
-                        <input type="checkbox"  v-model="checked" :value="item.key">  
-                        <label :for="item.key" class="strikethrough" >  {{ item.name }}  </label>                     
-                </div>              
-                <div class="itemtrash"  @click="del(item.key)"> <i class="fa fa-trash" ></i>  </div>
-        </ul> 
-        
-        
-    </div>    <!-- end of main -->
+                    <div id="uinputBox" class="col text-left userInput" > 
+                        <input :disabled="activate == 1 ? true : false " v-model="userInput"  type="text" placeholder="Enter an item" class="userInputBox" v-on:keyup.enter="add(userInput)" >   
+                    </div>
+                
+                    <div id="uinputDropdown" class="col-4 menu">
+                            <div class="dropdown">
+                                    <div class="dropbtn"> Options </div>
+                                    <div class="dropdown-content">                             
+                                        <a href="#" @click="showAll" class="dropDownItem"> Show All </a>
+                                        <a href="#" @click="unselectAll" class="dropDownItem"> Unselect All </a>
+                                        <a href="#" @click="deleteSelected" class="dropDownItem"> Delete Selected </a>
+                                        <a href="#" @click="deleteAll" class="dropDownItem"> Delete All </a>
+                                        <a href="#" @click="showUnchecked" class="dropDownItem"> Show Incomplete Tasks </a>
+                                        <a href="#" @click="showChecked" class="dropDownItem"> Show Completed Tasks </a>
+                                        <a href="#" @click="orderASC" class="dropDownItem"> Sort A to Z </a>
+                                        <a href="#" @click="orderDESC" class="dropDownItem"> Sort Z to A </a>
+                                    </div>
+                            </div>        
+                    </div>  <!-- end of uinputDropdown -->     
+
+            </div>  <!-- end of uinput  v-if="item.show === true"-->
+
+            <div id="itemsContainer" class="container-fluid">
+                <ul  class="itemRow row" v-for="item in items" :key="item.key" v-if="item.show === true" >                  
+                        <div class="itemRadio col-1" >  
+                                <input type="checkbox"  v-model="checked" :value="item.key">  
+                                <!-- <label :for="item.key" class="strikethrough" >  {{ item.name }}  </label>          -->
+                        </div>
+                        <label :for="item.key" class="col strikethrough itemText" >  {{ item.name }}  </label>                
+                        <div class="itemTrash col-2"  @click="del(item.key)"> <i class="fa fa-trash fa-2x" id="trashIcon" ></i>  </div>
+                </ul> 
+            </div>
+           
+            
+            
+        </div>    <!-- end of main -->
+    </div>
 
 
     <script src="main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 </body>
 </html>

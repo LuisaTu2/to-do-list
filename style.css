@@ -42,10 +42,11 @@ img{
     width: 60%;
     height: 70%;
     /* background-color: rgb(209, 204, 204); */
-    background-color: rgb(218, 214, 214);;
+    background-image: linear-gradient(to bottom, orange, rgb(241, 238, 238), rgb(218, 214, 214)); 
     color: cornsilk;
     font-size: 1.5em;
     overflow: auto;
+    border-radius: 3%;
 }
 
 
@@ -53,7 +54,8 @@ img{
     height: 100px;
 }
 .uinputRow{
-    background-color: orange;
+    /* background-color: orange; */
+    /* background-image: linear-gradient(45deg, rgb(245, 196, 105), orange); */
 }
 
 .userCheckbox{
@@ -108,10 +110,11 @@ img{
 .itemRow{
     width: 80%;
     height: 60px;
-    margin: 2.5% 0 0 12%;
+    margin: 2% 0 0 10%;
     font-family: 'Indie Flower', cursive;
     background-color:  rgb(250, 236, 209);
     color: rgb(7, 165, 165);
+    border-radius: 20px;
 }
 
 
@@ -142,6 +145,7 @@ img{
     padding-top: 10px;
     padding-right: 5px;
     font-size: 1.5em;
+    color: #39d3c5;
 }
 
 input[type=checkbox]:checked + label.strikethrough{

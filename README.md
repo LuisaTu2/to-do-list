@@ -10,4 +10,4 @@ A visual rendering is displayed below.
 
 <br>
 
-![ToDoList - Sample List](screenshot.png)
+![ToDoList - Sample List](screenshot1.png)

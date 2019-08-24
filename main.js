@@ -22,6 +22,8 @@ new Vue({
             if (userInput.length === 0){
                 alert("Empty items not allowed")
             } else {
+                console.log(this, this.items);
+
                 this.activate = 0;
                 var k = this.count + 1;
                 this.items.push({key: k, name: this.userInput, show: true});

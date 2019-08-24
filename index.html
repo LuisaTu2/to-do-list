@@ -55,10 +55,10 @@
 
             <div id="itemsContainer" class="container-fluid">
                 <ul  class="itemRow row" v-for="item in items" :key="item.key" v-if="item.show === true" >                  
-                        <div class="itemRadio col-1" >  
-                                <input type="checkbox"  v-model="checked" :value="item.key">  
+                        <!-- <div class="itemRadio col-1" >   -->
+                                <input type="checkbox"  v-model="checked" :value="item.key" >  
                                 <!-- <label :for="item.key" class="strikethrough" >  {{ item.name }}  </label>          -->
-                        </div>
+                        <!-- </div> -->
                         <label :for="item.key" class="col strikethrough itemText" >  {{ item.name }}  </label>                
                         <div class="itemTrash col-2"  @click="del(item.key)"> <i class="fa fa-trash fa-2x" id="trashIcon" ></i>  </div>
                 </ul> 

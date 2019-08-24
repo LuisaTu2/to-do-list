@@ -62,7 +62,7 @@ img{
     height:100%;
     /* background-color: green; */
 }
-#uinputCheckAll input{
+#uinputCheckAll #checkAll{
     height: 35px; 
     width: 35px;
     position: absolute;
@@ -120,13 +120,14 @@ img{
 
 .itemRadio{
     height: 100%;
-    /* background-color: blue; */
+    background-color: blue;
 }
 #itemsContainer input{
     height: 30px;
     width: 30px;
-    position: absolute;
-    top: 15px;
+    /* position: absolute; */
+    background-color: pink;
+    margin-top: 15px;
 }
 
 
